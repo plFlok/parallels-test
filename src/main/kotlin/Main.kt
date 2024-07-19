@@ -27,10 +27,10 @@ fun main() {
     val executor = Executors.newFixedThreadPool(threads) as ThreadPoolExecutor
 
     val reports = mutableListOf<Report>()
-    reports.add(testLimiter("Эвентов меньше, чем threshold: $TEST1_EVENTS_COUNT при threshold $THRESHOLD", TryIncrement::class, THRESHOLD, executor, TEST1_EVENTS_COUNT, 1000))
-    reports.add(testLimiter("Эвентов меньше, чем threshold: $TEST1_EVENTS_COUNT при threshold $THRESHOLD", IncrementAndAuthorize::class, THRESHOLD, executor, TEST1_EVENTS_COUNT, 1000))
-    reports.add(testLimiter("Эвентов больше, чем threshold: $TEST2_EVENTS_COUNT при threshold $THRESHOLD", TryIncrement::class, THRESHOLD, executor, TEST2_EVENTS_COUNT, 1000))
-    reports.add(testLimiter("Эвентов больше, чем threshold: $TEST2_EVENTS_COUNT при threshold $THRESHOLD", IncrementAndAuthorize::class, THRESHOLD, executor, TEST2_EVENTS_COUNT, 1000))
+    reports.add(testLimiter("Эвентов меньше, чем threshold: $TEST1_EVENTS_COUNT эвентров при threshold $THRESHOLD", TryIncrement::class, THRESHOLD, executor, TEST1_EVENTS_COUNT, 1000))
+    reports.add(testLimiter("Эвентов меньше, чем threshold: $TEST1_EVENTS_COUNT эвентров при threshold $THRESHOLD", IncrementAndAuthorize::class, THRESHOLD, executor, TEST1_EVENTS_COUNT, 1000))
+    reports.add(testLimiter("Эвентов больше, чем threshold: $TEST2_EVENTS_COUNT эвентров при threshold $THRESHOLD", TryIncrement::class, THRESHOLD, executor, TEST2_EVENTS_COUNT, 1000))
+    reports.add(testLimiter("Эвентов больше, чем threshold: $TEST2_EVENTS_COUNT эвентров при threshold $THRESHOLD", IncrementAndAuthorize::class, THRESHOLD, executor, TEST2_EVENTS_COUNT, 1000))
 
     executor.shutdown()
 
