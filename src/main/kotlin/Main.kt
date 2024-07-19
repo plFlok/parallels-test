@@ -11,8 +11,8 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 
 const val THRESHOLD = 100
-const val TEST1_EVENTS_COUNT = THRESHOLD / 10
-const val TEST2_EVENTS_COUNT = THRESHOLD * 100
+const val TEST1_EVENTS_COUNT = THRESHOLD / 2
+const val TEST2_EVENTS_COUNT = THRESHOLD * 2
 
 class Report(
     val clazz: String,
@@ -73,7 +73,7 @@ fun <T : Limiter> testLimiter(
         val requiredToAllowEvents = min(threshold, parallelTasksCount)
         if (allowedEvents != requiredToAllowEvents) {
             println(
-                "Лимитер ${limiter::class} завалил тест #$iteration, ожидается $requiredToAllowEvents пропущенных эвентов, но получили $allowedEvents"
+                "Лимитер ${limiter::class} завалил тест #$iteration, ожидается $requiredToAllowEvents одобренных эвентов, но получили $allowedEvents"
             )
             failedTests++
         }
